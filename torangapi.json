@@ -2,10 +2,10 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Swagger Torang - OpenAPI 3.0",
-    "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.",
+    "description": "This is a Torang Server based on the OpenAPI 3.0 specification.",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "apiteam@swagger.io"
+      "email": "sarang628@gmail.com"
     },
     "license": {
       "name": "Apache 2.0",
@@ -13,16 +13,16 @@
     },
     "version": "1.0.11"
   },
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
-  },
   "servers": [
     {
-      "url": "https://petstore3.swagger.io/api/v3"
+      "url": "http://sarang628.iptime.org:8081"
     }
   ],
   "tags": [
+    {
+      "name": "chat",
+      "description": "chat"
+    },
     {
       "name": "pet",
       "description": "Everything about your Pets",
@@ -45,11 +45,14 @@
     }
   ],
   "paths": {
+    "/chat": {
+      "post":{"tags" : ["chat"],
+        "responses": {"200":{"description": "Successful operation"}}
+      }
+    },
     "/pet": {
       "put": {
-        "tags": [
-          "pet"
-        ],
+        "tags": ["pet"],
         "summary": "Update an existing pet",
         "description": "Update an existing pet by Id",
         "operationId": "updatePet",
