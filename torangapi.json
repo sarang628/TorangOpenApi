@@ -15,7 +15,8 @@
   },
   "servers": [
     {
-      "url": "http://sarang628.iptime.org:8081"
+      "url": "http://sarang628.iptime.org:8081",
+      "url": "http://localhost:8081"
     }
   ],
   "tags": [
@@ -45,14 +46,46 @@
     }
   ],
   "paths": {
-    "/chat": {
-      "post":{"tags" : ["chat"],
-        "responses": {"200":{"description": "Successful operation"}}
+    "/uploadChatImage": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        },
+        "requestBody": {
+          "description": "",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "profileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/pet": {
       "put": {
-        "tags": ["pet"],
+        "tags": [
+          "pet"
+        ],
         "summary": "Update an existing pet",
         "description": "Update an existing pet by Id",
         "operationId": "updatePet",
